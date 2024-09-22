@@ -7,3 +7,6 @@
 4. **Who are the potential customers, end users or buyers?** This product is produced for working adults and the general public that wants a quick review of the daily news.
 5. **What are the potential features, functions, or other important details that would be appealing to customers, end users or buyers?** Some potential features and functions that will be included in this product are a daily summary of news headlines that will be shown on the web application as well as an email newsletter than will be sent to users if they wish to sign up.
 
+# Our Vision
+Our vision is to empower busy professionals with concise, reliable, and professional news summaries, fostering a well-informed global community
+
