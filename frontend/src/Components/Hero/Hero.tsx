@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8">See The Daily News Summary in Action</h2>
           <div className="max-w-3xl mx-auto bg-white p-4 rounded-lg shadow-lg">
             <div className="aspect-w-16 aspect-h-9">
-              <img src="/api/placeholder/640/360" alt="Product Demo Video" className="w-full h-full object-cover rounded" />
+              <img src="" alt="Product Demo Video" className="w-full h-full object-cover rounded" />
             </div>
             <p className="mt-4 text-gray-600">Click to watch our product pitch</p>
           </div>
@@ -116,7 +116,7 @@ const getFeatureDescription = (feature: string): string => {
     case "Time-Saving Summaries":
       return "Get the essence of today's news in just minutes, allowing you to stay informed without sacrificing your busy schedule.";
     case "Personalized Content":
-      return "Receive news relavent to your interests and industry, ensuring you never miss out on what matters most to you.";
+      return "Receive news relevant to your interests and industry, ensuring you never miss out on what matters most to you.";
     case "AI Summary":
       return "The Daily News Summary utilizes AI to give you the best summaries of today's news.";
     default:
