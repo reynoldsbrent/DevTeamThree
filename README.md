@@ -17,7 +17,7 @@ Our vision is to empower busy professionals with concise, reliable, and professi
 - A code editor (e.g. Visual Studio Code)
 
 1. Clone the Repository
-    - `git clone https://github.com/reynoldsbrent/TheDailyNewsSummary`
+    - `git clone https://github.com/reynoldsbrent/DevTeamThree.git`
 2. Setup the Frontend
     - Change directories to the `frontend` folder
 3. Install npm Packages
