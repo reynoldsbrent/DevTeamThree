@@ -1,8 +1,5 @@
 import React from 'react'
 import { Camera } from 'lucide-react';
-import brentPhoto from './images/team/breynolds.jpg';
-import jaredPhoto from './images/team/jrosenberger.jpg';
-import matthewPhoto from './images/team/mparsley.jpg';
 
 interface TeamMember {
     name: string;
@@ -94,9 +91,9 @@ const Hero: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8">See The Daily News Summary in Action</h2>
           <div className="max-w-3xl mx-auto bg-white p-4 rounded-lg shadow-lg">
             <div className="aspect-w-16 aspect-h-9">
-              <img src="" alt="Product Demo Video" className="w-full h-full object-cover rounded" />
+              <img src="./images/ProductPitch.png" alt="Product Pitch Video" className="w-full h-full object-cover rounded" />
             </div>
-            <p className="mt-4 text-gray-600">Click to watch our product pitch</p>
+            <a href="https://video.bellarmine.edu/media/CS400+DevTeamThree+Product+Pitch/1_lfa2jc46" className="mt-4 text-gray-600">Click to watch our product pitch</a>
           </div>
         </div>
       </section>
