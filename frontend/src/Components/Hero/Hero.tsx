@@ -1,5 +1,7 @@
 import React from 'react'
 import { Camera } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import Layout from '../Layout/Layout';
 
 interface TeamMember {
     name: string;
@@ -27,14 +29,17 @@ interface TeamMember {
 
 const Hero: React.FC = () => {
   return (
+<Layout>
     <div className="font-sans">
       {/* Hero Section */}
       <section className="bg-blue-600 text-white py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-5xl font-bold mb-4">The Daily News Summary</h1>
-          <p className="text-2xl mb-8">Stay Informed, Save Time</p>
+          <h1 className="text-5xl font-bold mb-4">Stay Informed, Save Time</h1>
           <p className="text-xl mb-8">Your daily digest of the world's most important stories, curated and summarized for busy professionals.</p>
           <a href="#features" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300">Learn More</a>
+          <Link to="/design" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300 ml-2">
+              Design Artifacts
+            </Link>
         </div>
       </section>
 
@@ -105,6 +110,7 @@ const Hero: React.FC = () => {
         </div>
       </footer>
     </div>
+    </Layout>
   );
 };
 
