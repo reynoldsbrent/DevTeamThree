@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '../Navbar/Navbar';
-
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Reset scroll position when route changes
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Navbar />
-      <main className="pt-16"> 
+      <div className="pt-16"> 
         {children}
-      </main>
+      </div>
     </div>
   );
 };
