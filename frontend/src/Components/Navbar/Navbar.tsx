@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
             <a href="/" className="block py-2 hover:text-blue-200 transition duration-300">
               Home
             </a>
-            <a href="/design-artifacts" className="block py-2 hover:text-blue-200 transition duration-300">
+            <a href="/design" className="block py-2 hover:text-blue-200 transition duration-300">
               Design Artifacts
             </a>
           </div>
