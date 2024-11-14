@@ -28,4 +28,4 @@ Our vision is to empower busy professionals with concise, reliable, and professi
 The frontend should now be running.
 
 
-News articles provided by `https://www.newscatcherapi.com/`
+News articles provided by [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/)
