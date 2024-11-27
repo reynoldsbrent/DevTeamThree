@@ -40,6 +40,9 @@ const Hero: React.FC = () => {
           <Link to="/design" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300 ml-2">
               Design Artifacts
             </Link>
+            <Link to="/articles" className="bg-white text-blue-600 py-2 px-6 rounded-full text-lg font-semibold hover:bg-blue-100 transition duration-300 ml-2">
+  View Articles
+</Link>
         </div>
       </section>
 
