@@ -1,6 +1,8 @@
 
 using api.Data;
+using api.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace api
 {
@@ -17,10 +19,18 @@ namespace api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+
             builder.Services.AddDbContext<ApplicationDBContext>(options =>
             {
                 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            builder.Services.AddHostedService<ArticleFetchService>();
+            builder.Services.AddHttpClient();
 
             var app = builder.Build();
 
