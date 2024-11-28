@@ -11,6 +11,51 @@ interface Article {
     link: string;
   }
   
+  const formatDate = (dateString: string) => {
+    // Log the incoming date string
+    console.log('Input date string:', dateString);
+  
+    try {
+      // First attempt: direct parsing
+      const date = new Date(dateString);
+      console.log('Parsed date object:', date);
+      console.log('Date.getTime():', date.getTime());
+      
+      // Check if date is valid
+      if (isNaN(date.getTime())) {
+        console.log('Invalid date detected, attempting alternative parsing');
+        
+        // Alternative parsing method
+        const [datePart, timePart] = dateString.split(' ');
+        const [year, month, day] = datePart.split('-').map(Number);
+        const [hours, minutes, seconds] = timePart.split(':').map(Number);
+        
+        const correctedDate = new Date(year, month - 1, day, hours, minutes, seconds);
+        console.log('Corrected date:', correctedDate);
+        
+        if (isNaN(correctedDate.getTime())) {
+          console.log('Alternative parsing also failed');
+          return 'Invalid date';
+        }
+        
+        return correctedDate.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+      }
+  
+      return date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    } catch (error) {
+      console.log('Error in date formatting:', error);
+      return 'Invalid date';
+    }
+  };
+
   const Modal = ({ article, onClose }: { article: Article; onClose: () => void }) => {
     console.log('Article URL in modal:', article.link);
   
@@ -19,6 +64,8 @@ interface Article {
         onClose();
       }
     };
+
+    
   
     React.useEffect(() => {
       document.body.style.overflow = 'hidden';
@@ -49,11 +96,7 @@ interface Article {
             <div className="flex items-center text-gray-600 mb-4">
               <Calendar className="w-4 h-4 mr-2" />
               <span className="text-sm">
-                {new Date(article.publishedDate).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
+                {formatDate(article.publishedDate)}
               </span>
             </div>
   
@@ -164,12 +207,8 @@ interface Article {
                         <div className="flex items-center text-gray-600 mb-3">
                           <Calendar className="w-4 h-4 mr-2" />
                           <span className="text-sm">
-                            {new Date(article.publishedDate).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </span>
+                            {formatDate(article.publishedDate)}
+                        </span>
                         </div>
                         <p className="text-gray-600 line-clamp-3">
                           {article.summary}
