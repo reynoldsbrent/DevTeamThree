@@ -44,6 +44,7 @@ namespace api.Controllers
                 Excerpt = a.Excerpt,
                 Summary = a.Summary,
                 Topic = a.Topic,
+                PublishedDate = a.PublishedDate,
                 Authors = a.Authors.Select(auth => new AuthorDto
                 {
                     ID = auth.ID,
@@ -68,6 +69,7 @@ namespace api.Controllers
                     Excerpt = a.Excerpt,
                     Summary = a.Summary,
                     Topic = a.Topic,
+                    PublishedDate = a.PublishedDate,
                     Authors = a.Authors.Select(auth => new AuthorDto
                     {
                         ID = auth.ID,
