@@ -61,6 +61,7 @@ namespace api.Controllers
         {
             var articles = await _context.Articles
                 .Include(a => a.Authors)
+                .OrderByDescending(a => a.PublishedDate)
                 .Select(a => new ArticleResponseDto
                 {
                     ID = a.ID,
