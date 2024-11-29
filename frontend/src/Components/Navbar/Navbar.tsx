@@ -26,6 +26,9 @@ const Navbar: React.FC = () => {
             <Link to="/design" className="hover:text-blue-200 transition duration-300">
               Design Artifacts
             </Link>
+            <Link to="/articles" className="hover:text-blue-200 transition duration-300">
+              View Articles
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -47,6 +50,9 @@ const Navbar: React.FC = () => {
             </a>
             <a href="/design" className="block py-2 hover:text-blue-200 transition duration-300">
               Design Artifacts
+            </a>
+            <a href="/articles" className="block py-2 hover:text-blue-200 transition duration-300">
+              View Articles
             </a>
           </div>
         )}
