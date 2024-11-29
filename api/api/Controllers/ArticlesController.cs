@@ -187,7 +187,11 @@ namespace api.Controllers
                         // Generate AI summary from the API's summary
                         if (!string.IsNullOrEmpty(apiArticle.Summary))
                         {
-                            article.Summary = await GenerateAISummary(apiArticle.Summary);
+                            var aiSummary = await GenerateAISummary(apiArticle.Summary);
+                            // Use AI summary if successful, otherwise fall back to original summary
+                            article.Summary = (aiSummary == "Failed to generate summary" || aiSummary == "No summary generated")
+                                ? apiArticle.Summary
+                                : aiSummary;
                         }
 
                         // Handle authors
