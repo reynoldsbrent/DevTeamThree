@@ -1,0 +1,43 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - WATCHPACK_POLLING=true
+    depends_on:
+      - api
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "7160:7160"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7160
+      - NewsApi__Key=${NEWS_API_KEY}
+      - Cloudflare__AccountId=${CLOUDFLARE_ACCOUNT_ID}
+      - Cloudflare__ApiToken=${CLOUDFLARE_API_TOKEN}
+    volumes:
+      - ./api/api/TheDailyNewsSummary.db:/app/TheDailyNewsSummary.db
+      - db-data:/app/data
+
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.tests
+    depends_on:
+      - api
+
+volumes:
+  db-data:

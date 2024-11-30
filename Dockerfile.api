@@ -1,0 +1,24 @@
+# API Dockerfile (Dockerfile.api)
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copy csproj and restore dependencies
+COPY ["api/api/api.csproj", "api/"]
+RUN dotnet restore "api/api.csproj"
+
+# Copy the rest of the code
+COPY ["api/api/", "api/"]
+
+# Build the application
+RUN dotnet build "api/api.csproj" -c Release -o /app/build
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+COPY --from=build /app/build .
+
+# Environment variables for API keys
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_URLS=http://+:7160
+
+EXPOSE 7160
+ENTRYPOINT ["dotnet", "api.dll"]

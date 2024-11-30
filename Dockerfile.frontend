@@ -1,0 +1,10 @@
+# Frontend Dockerfile (Dockerfile.frontend)
+FROM node:20.14.0 AS frontend
+WORKDIR /app
+COPY frontend/package*.json ./
+RUN npm config set fetch-timeout 300000 \
+    && npm install --verbose --no-fund --fetch-retries 5 --fetch-retry-factor 10 --fetch-retry-mintimeout 100000 --fetch-retry-maxtimeout 600000 \
+    && npm cache clean --force
+COPY frontend/ ./
+EXPOSE 3000
+CMD ["npm", "start"]

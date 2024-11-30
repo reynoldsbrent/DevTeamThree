@@ -1,0 +1,18 @@
+# Test Dockerfile (Dockerfile.tests)
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS test
+WORKDIR /src
+
+# Set NuGet timeout to a higher value
+ENV NUGET_HTTP_TIMEOUT=1200
+
+# Copy both projects and restore dependencies
+COPY ["api/api/api.csproj", "api/"]
+COPY ["api/api.Tests/api.Tests.csproj", "api.Tests/"]
+RUN dotnet restore "api.Tests/api.Tests.csproj" --disable-parallel
+
+# Copy the rest of the code
+COPY ["api/api/", "api/"]
+COPY ["api/api.Tests/", "api.Tests/"]
+
+# Run tests
+ENTRYPOINT ["dotnet", "test", "api.Tests/api.Tests.csproj"]
