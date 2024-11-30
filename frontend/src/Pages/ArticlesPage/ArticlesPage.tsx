@@ -128,11 +128,11 @@ interface Article {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          await fetch('https://localhost:7160/api/Articles/fetch-and-process', {
+          await fetch('http://localhost:7160/api/Articles/fetch-and-process', {
             method: 'POST',
           });
   
-          const response = await fetch('https://localhost:7160/api/Articles/all');
+          const response = await fetch('http://localhost:7160/api/Articles/all');
           if (!response.ok) {
             throw new Error('Failed to fetch articles');
           }
