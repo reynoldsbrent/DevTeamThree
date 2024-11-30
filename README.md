@@ -12,7 +12,7 @@ Our vision is to empower busy professionals with concise, reliable, and professi
 
 ## Project Setup 
 ### Prerequisites
-- In order to properly run the application you will need to provide the NewsCatcher API Key, the Cloudflare Workers AI API Key, and the Cloudflare Workers AI Account ID into the appsettings.json file. You can get a NewsCatcher API Key from the following link [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/). You can get an API Key and Account ID for Claudflare Workers AI API from the following link [https://developers.cloudflare.com/fundamentals/api/get-started/create-token/](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/).
+- In order to properly run the application you will need to provide the NewsCatcher API Key, the Cloudflare Workers AI API Key, and the Cloudflare Workers AI Account ID into the appsettings.json file. You can get a NewsCatcher API Key from the following link [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/). You can get an API Key and Account ID for Cloudflare Workers AI API from the following link [https://developers.cloudflare.com/fundamentals/api/get-started/create-token/](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/).
 ``` json 
 {
   "ConnectionStrings": {
@@ -36,14 +36,14 @@ Our vision is to empower busy professionals with concise, reliable, and professi
   "AllowedHosts": "*"
 }
 ```
-You will also need to create a .env file in the root of the project and fill in the placeholders for the NewsCatcher API key and the CLoudflare Workers AI API Key and Account ID. An example file named .env.example has been created for your reference. Ensure that you create a separate .env file with the placeholders filled in.
+You will also need to create a .env file in the root of the project and fill in the placeholders for the NewsCatcher API key and the Cloudflare Workers AI API Key and Account ID. An example file named .env.example has been created for your reference. Ensure that you create a separate .env file with the placeholders filled in.
 ## How to Run the Web App With Docker
 ### Prerequisites
 - Docker installed (You can find installation guides on the Docker website)
 - Windows installation guide: [https://docs.docker.com/desktop/setup/install/windows-install/](url)
 - Mac installation guide: [https://docs.docker.com/desktop/setup/install/mac-install/](url)
 
-1. Run `docker-compose build --no-cache frontend` in the root of the project - the same directory as the dockerfiles and docker-compose.yml file.
+1. Run `docker-compose build --no-cache frontend` in the root of the project - the same directory as the dockerfiles and the docker-compose.yml file.
 2. Once that is finished, run `docker-compose build --no-cache api`
 3. Then, run `docker-compose build --no-cache tests`
 4. Next, run `docker-compose up`
@@ -81,4 +81,6 @@ The frontend should now be running.
 The API should now be running.
 
 
-News articles provided by [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/)
+News articles provided by [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/).
+
+AI text summary generation provided by the Cloudflare Workers AI API using the bart-large-cnn model. The Cloudflare Workers AI API can be found at [https://developers.cloudflare.com/workers-ai/](https://developers.cloudflare.com/workers-ai/). Documentation on the bart-large-cnn model can be found at [https://developers.cloudflare.com/workers-ai/models/bart-large-cnn/](https://developers.cloudflare.com/workers-ai/models/bart-large-cnn/).
