@@ -10,7 +10,49 @@
 ## Our Vision
 Our vision is to empower busy professionals with concise, reliable, and professional news summaries, fostering a well-informed global community
 
-## How to Run the Web App
+## Project Setup 
+### Prerequisites
+- In order to properly run the application you will need to provide the NewsCatcher API Key, the Cloudflare Workers AI API Key, and the Cloudflare Workers AI Account ID into the appsettings.json file. You can get a NewsCatcher API Key from the following link [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/). You can get an API Key and Account ID for Claudflare Workers AI API from the following link [https://developers.cloudflare.com/fundamentals/api/get-started/create-token/](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/).
+``` json 
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=TheDailyNewsSummary.db"
+  },
+  "NewsApi": {
+    "Key": "",
+    "BaseUrl": "https://api.newscatcherapi.com/v2/latest_headlines?lang=en"
+  },
+  "Cloudflare": {
+    "AccountId": "",
+    "ApiToken": "",
+    "ModelName": "@cf/facebook/bart-large-cnn"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+```
+You will also need to create a .env file in the root of the project and fill in the placeholders for the NewsCatcher API key and the CLoudflare Workers AI API Key and Account ID. An example file named .env.example has been created for your reference. Ensure that you create a separate .env file with the placeholders filled in.
+## How to Run the Web App With Docker
+### Prerequisites
+- Docker installed (You can find installation guides on the Docker website)
+- Windows installation guide: [https://docs.docker.com/desktop/setup/install/windows-install/](url)
+- Mac installation guide: [https://docs.docker.com/desktop/setup/install/mac-install/](url)
+
+1. Run `docker-compose build --no-cache frontend` in the root of the project - the same directory as the dockerfiles and docker-compose.yml file.
+2. Once that is finished, run `docker-compose build --no-cache api`
+3. Then, run `docker-compose build --no-cache tests`
+4. Next, run `docker-compose up`
+5. Once that is finished running, you should see the results of the unit tests in the terminal. You should also be able to access the web application at http://localhost:3000. In addition, you can access the API at http://localhost:7160.
+6. Once you are done viewing the web app, you can click CTRL + C to stop.
+
+If you encounter any errors when running the `docker-compose build` commands, try to run the command again. 
+
+## How to Run the Web App Without Docker
 ### Prerequisites
 - Git installed
 - Node.js and npm installed (for React frontend)
@@ -26,6 +68,17 @@ Our vision is to empower busy professionals with concise, reliable, and professi
     - Run `npm start`
 
 The frontend should now be running.
+
+5. Setup the Backend
+    - Change directories to the backend API using `cd api/api`
+6. Restore NuGet Packages
+    - If you are in VS Code you can use `dotnet restore`
+    - If you are in Visual Studio, the NuGet packages are automatically restored
+7. Run the Backend
+    - If you are in VS Code, you can use `dotnet watch run`
+    - If you are using Visual Studio, you can use the green play button to start the API
+
+The API should now be running.
 
 
 News articles provided by [https://www.newscatcherapi.com/](https://www.newscatcherapi.com/)
