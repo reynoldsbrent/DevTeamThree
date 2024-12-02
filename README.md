@@ -56,6 +56,7 @@ If you encounter any errors when running the `docker-compose build` commands, tr
 ### Prerequisites
 - Git installed
 - Node.js and npm installed (for React frontend)
+- .NET 8 SDK installed
 - A code editor (e.g. Visual Studio Code)
 
 1. Clone the Repository
