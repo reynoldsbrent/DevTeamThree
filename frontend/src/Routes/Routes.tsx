@@ -35,6 +35,7 @@ import Scenario18 from "../Pages/DesignArtifacts/Scenarios/Scenario18";
 import UserStories from "../Pages/DesignArtifacts/UserStories/UserStories";
 import Features from "../Pages/DesignArtifacts/Features/Features";
 import ArticlesPage from "../Pages/ArticlesPage/ArticlesPage";
+import ArchitecturalDesign from "../Pages/ArchitecturalDesign/ArchitecturalDesign";
 
 export const router = createBrowserRouter([
     {
@@ -75,7 +76,8 @@ export const router = createBrowserRouter([
         {path: "scenario18", element: <Scenario18 />},
         {path: "userstories", element: <UserStories />},
         {path: "featureslist", element: <Features />},
-        {path: "articles", element: <ArticlesPage />}
+        {path: "articles", element: <ArticlesPage />},
+        {path: "architecture", element: <ArchitecturalDesign />}
       ],
     },
   ]);
