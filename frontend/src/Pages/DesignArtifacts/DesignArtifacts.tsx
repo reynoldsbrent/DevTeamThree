@@ -59,7 +59,14 @@ const additionalDocs: NavigationItem[] = [
     isExternal: true,
     url: 'https://video.bellarmine.edu/media/1_lo88dpb1'  
   },
-  { id: 'architecture', title: 'Architectural Design', path: '/architecture' }
+  { id: 'architecture', title: 'Architectural Design', path: '/architecture' },
+  { 
+    id: 'finalvideo', 
+    title: 'Final Video Overview', 
+    path: '#',
+    isExternal: true,
+    url: 'https://video.bellarmine.edu/media/CS400_DevTeamThree_FinalVideoOverview/1_eqebm4rv'  
+  }
 ];
 
 const NavigationSection: React.FC<{
